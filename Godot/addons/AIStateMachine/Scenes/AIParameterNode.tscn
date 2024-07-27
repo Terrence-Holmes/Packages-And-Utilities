@@ -1,0 +1,238 @@
+[gd_scene load_steps=12 format=3 uid="uid://jads067hlqkr"]
+
+[ext_resource type="Theme" uid="uid://bix50iqwowkq5" path="res://addons/AIStateMachine/Themes/AIStateMachineTheme.tres" id="1_8jomw"]
+[ext_resource type="Texture2D" uid="uid://cmtmquhxqwdri" path="res://addons/AIStateMachine/Icons/OptionsDots1.png" id="1_capi6"]
+[ext_resource type="Script" path="res://addons/AIStateMachine/Scripts/AIParameterNode.gd" id="1_lw85i"]
+[ext_resource type="Texture2D" uid="uid://tels42klcuyi" path="res://addons/AIStateMachine/Icons/Trash.png" id="2_lx7so"]
+[ext_resource type="Texture2D" uid="uid://bpu2f8c8kubnh" path="res://addons/AIStateMachine/Icons/Enter1.png" id="2_m7wv5"]
+[ext_resource type="Texture2D" uid="uid://dcenuxmuvwvdw" path="res://addons/AIStateMachine/Icons/CheckboxIcon.png" id="3_iyjsg"]
+[ext_resource type="Texture2D" uid="uid://dwcspx6ncx663" path="res://addons/AIStateMachine/Icons/IntIcon.png" id="4_j6c3v"]
+[ext_resource type="Texture2D" uid="uid://p7i2qyrfprp6" path="res://addons/AIStateMachine/Icons/FloatIcon.png" id="5_q8m2l"]
+[ext_resource type="Texture2D" uid="uid://bjaa50o1hx1wp" path="res://addons/AIStateMachine/Icons/StringIcon.png" id="6_8p2qn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b5lma"]
+bg_color = Color(0.211765, 0.239216, 0.290196, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s28i4"]
+bg_color = Color(0.47451, 0.47451, 0.47451, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="AIParameterNode" type="Panel" groups=["ParameterNode"]]
+custom_minimum_size = Vector2(416, 42)
+offset_right = 416.0
+offset_bottom = 42.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_b5lma")
+script = ExtResource("1_lw85i")
+
+[node name="ParameterContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(416, 42)
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 42.0
+
+[node name="ParameterNameContainer" type="Control" parent="ParameterContainer"]
+custom_minimum_size = Vector2(176, 42)
+layout_mode = 2
+
+[node name="ParameterName" type="LineEdit" parent="ParameterContainer/ParameterNameContainer"]
+custom_minimum_size = Vector2(176, 38)
+layout_mode = 2
+offset_right = 160.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 19
+text = "ParamName"
+max_length = 16
+
+[node name="Spacing" type="Control" parent="ParameterContainer"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ParameterValue" type="Control" parent="ParameterContainer"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="ValueTrigger" type="Label" parent="ParameterContainer/ParameterValue"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 0
+offset_right = 112.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_colors/font_outline_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 18
+text = "TRIGGER"
+horizontal_alignment = 2
+vertical_alignment = 1
+clip_text = true
+
+[node name="Icon" type="TextureRect" parent="ParameterContainer/ParameterValue/ValueTrigger"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 10.0
+offset_right = 28.0
+offset_bottom = 34.0
+texture = ExtResource("2_m7wv5")
+expand_mode = 1
+
+[node name="ValueBool" type="Label" parent="ParameterContainer/ParameterValue"]
+visible = false
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 0
+offset_right = 74.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_colors/font_outline_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 18
+text = "bool"
+horizontal_alignment = 2
+vertical_alignment = 1
+clip_text = true
+
+[node name="Icon" type="TextureRect" parent="ParameterContainer/ParameterValue/ValueBool"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 10.0
+offset_right = 26.0
+offset_bottom = 34.0
+texture = ExtResource("3_iyjsg")
+expand_mode = 1
+
+[node name="ValueInt" type="Label" parent="ParameterContainer/ParameterValue"]
+visible = false
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_colors/font_outline_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 18
+text = "int"
+horizontal_alignment = 2
+vertical_alignment = 1
+clip_text = true
+
+[node name="Icon" type="TextureRect" parent="ParameterContainer/ParameterValue/ValueInt"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 10.0
+offset_right = 26.0
+offset_bottom = 34.0
+texture = ExtResource("4_j6c3v")
+expand_mode = 1
+
+[node name="ValueFloat" type="Label" parent="ParameterContainer/ParameterValue"]
+visible = false
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 0
+offset_right = 74.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_colors/font_outline_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 18
+text = "float"
+horizontal_alignment = 2
+vertical_alignment = 1
+clip_text = true
+
+[node name="Icon" type="TextureRect" parent="ParameterContainer/ParameterValue/ValueFloat"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 10.0
+offset_right = 26.0
+offset_bottom = 34.0
+texture = ExtResource("5_q8m2l")
+expand_mode = 1
+
+[node name="ValueString" type="Label" parent="ParameterContainer/ParameterValue"]
+visible = false
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 0
+offset_right = 84.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_colors/font_outline_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 18
+text = "string"
+horizontal_alignment = 2
+vertical_alignment = 1
+clip_text = true
+
+[node name="Icon" type="TextureRect" parent="ParameterContainer/ParameterValue/ValueString"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 10.0
+offset_right = 26.0
+offset_bottom = 34.0
+texture = ExtResource("6_8p2qn")
+expand_mode = 1
+
+[node name="Dash" type="Label" parent="."]
+layout_direction = 1
+layout_mode = 0
+offset_left = 174.0
+offset_top = -17.0
+offset_right = 181.0
+offset_bottom = 9.0
+theme_override_colors/font_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_colors/font_outline_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_constants/outline_size = 4
+text = "_"
+
+[node name="ValueType" type="MenuButton" parent="."]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 0
+offset_left = 383.0
+offset_top = 9.0
+offset_right = 407.0
+offset_bottom = 33.0
+theme = ExtResource("1_8jomw")
+theme_override_font_sizes/font_size = 26
+icon = ExtResource("1_capi6")
+flat = false
+expand_icon = true
+item_count = 5
+popup/item_0/text = "Trigger"
+popup/item_0/id = 0
+popup/item_1/text = "Bool"
+popup/item_1/id = 1
+popup/item_2/text = "Int"
+popup/item_2/id = 2
+popup/item_3/text = "Float"
+popup/item_3/id = 3
+popup/item_4/text = "String"
+popup/item_4/id = 4
+
+[node name="Delete" type="Button" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_left = 424.0
+offset_top = 5.0
+offset_right = 456.0
+offset_bottom = 37.0
+focus_mode = 0
+theme = ExtResource("1_8jomw")
+theme_override_colors/icon_normal_color = Color(0.27451, 0.27451, 0.27451, 1)
+theme_override_colors/icon_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.831373, 0.831373, 0.831373, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.831373, 0.831373, 0.831373, 1)
+theme_override_colors/icon_disabled_color = Color(1, 0, 0, 1)
+theme_override_styles/disabled = SubResource("StyleBoxFlat_s28i4")
+icon = ExtResource("2_lx7so")
+expand_icon = true
+
+[connection signal="focus_entered" from="ParameterContainer/ParameterNameContainer/ParameterName" to="." method="_parameter_name_focus"]
+[connection signal="text_submitted" from="ParameterContainer/ParameterNameContainer/ParameterName" to="." method="_set_parameter_name"]
+[connection signal="pressed" from="Delete" to="." method="_remove_pressed"]

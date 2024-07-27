@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://4t0lw852on3i"]
+
+[ext_resource type="Script" path="res://addons/DebugPanel/scr_debugPanel.gd" id="1_ik14y"]
+
+[node name="DebugPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ik14y")
+
+[node name="DrawGizmos" type="CheckBox" parent="."]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 24.0
+text = "Draw Gizmos"
+
+[connection signal="toggled" from="DrawGizmos" to="." method="_drawGizmos_toggled"]

@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1nf53plg8iqi"]
+
+[ext_resource type="Theme" uid="uid://bix50iqwowkq5" path="res://addons/AIStateMachine/Themes/AIStateMachineTheme.tres" id="1_2cevg"]
+[ext_resource type="Script" path="res://addons/AIStateMachine/Scripts/AIConnectionNode.gd" id="2_ma7sy"]
+[ext_resource type="Texture2D" uid="uid://tels42klcuyi" path="res://addons/AIStateMachine/Icons/Trash.png" id="3_ox1kq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_igfda"]
+bg_color = Color(0.607843, 0.607843, 0.607843, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.756863, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufoi7"]
+bg_color = Color(0.47451, 0.47451, 0.47451, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="AIConnectionNode" type="Button" groups=["ConnectionNode"]]
+self_modulate = Color(0.8, 0.8, 0.8, 1)
+custom_minimum_size = Vector2(256, 42)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -896.0
+offset_bottom = -616.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("1_2cevg")
+theme_override_font_sizes/font_size = 24
+text = "   attack_state"
+alignment = 0
+script = ExtResource("2_ma7sy")
+
+[node name="Select" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(256, 42)
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 42.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_igfda")
+
+[node name="Delete" type="Button" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_left = 264.0
+offset_top = 5.0
+offset_right = 296.0
+offset_bottom = 37.0
+focus_mode = 0
+theme = ExtResource("1_2cevg")
+theme_override_colors/icon_normal_color = Color(0.27451, 0.27451, 0.27451, 1)
+theme_override_colors/icon_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.831373, 0.831373, 0.831373, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.831373, 0.831373, 0.831373, 1)
+theme_override_colors/icon_disabled_color = Color(1, 0, 0, 1)
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ufoi7")
+icon = ExtResource("3_ox1kq")
+expand_icon = true
+
+[connection signal="pressed" from="." to="." method="_pressed"]
+[connection signal="pressed" from="Delete" to="." method="_remove_pressed"]

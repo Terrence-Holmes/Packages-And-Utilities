@@ -1,0 +1,515 @@
+[gd_scene load_steps=11 format=3 uid="uid://oy4tju5786e8"]
+
+[ext_resource type="Script" path="res://addons/AIStateMachine/Scripts/AIStateMachineUI.gd" id="1_1vu23"]
+[ext_resource type="Theme" uid="uid://bix50iqwowkq5" path="res://addons/AIStateMachine/Themes/AIStateMachineTheme.tres" id="2_7j0b2"]
+[ext_resource type="Texture2D" uid="uid://boyiirg4nq8c4" path="res://addons/AIStateMachine/Icons/Arrow1_Right.png" id="4_h70oq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vvfi"]
+bg_color = Color(0.129412, 0.14902, 0.180392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_srrly"]
+bg_color = Color(0.266667, 0.411765, 0.541176, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g51j8"]
+bg_color = Color(0, 0, 0, 0.156863)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vlkja"]
+bg_color = Color(0.435294, 0.435294, 0.435294, 0.156863)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_34fgl"]
+bg_color = Color(0.513726, 0.513726, 0.513726, 0.156863)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0.282353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdnxg"]
+bg_color = Color(0.109804, 0.121569, 0.133333, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.211765, 0.239216, 0.290196, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uuf6f"]
+bg_color = Color(1, 0.45098, 0.45098, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.678431, 0.678431, 1)
+
+[node name="AI State Machine" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_1vu23")
+
+[node name="MainScroll" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_bottom = 8.0
+vertical_scroll_mode = 0
+
+[node name="MainHBox" type="HBoxContainer" parent="MainScroll"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="ParametersPanel" type="Panel" parent="MainScroll/MainHBox"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8vvfi")
+
+[node name="ParametersScroll" type="ScrollContainer" parent="MainScroll/MainHBox/ParametersPanel"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 544.0
+offset_bottom = 32.0
+horizontal_scroll_mode = 0
+
+[node name="VBox" type="VBoxContainer" parent="MainScroll/MainHBox/ParametersPanel/ParametersScroll"]
+custom_minimum_size = Vector2(504, 0)
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="FieldLabel" type="Label" parent="MainScroll/MainHBox/ParametersPanel/ParametersScroll/VBox"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_srrly")
+text = "PARAMETERS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreateButton" type="Button" parent="MainScroll/MainHBox/ParametersPanel/ParametersScroll/VBox"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme = ExtResource("2_7j0b2")
+theme_override_font_sizes/font_size = 24
+text = "Create Parameter"
+
+[node name="ParameterContainer" type="VBoxContainer" parent="MainScroll/MainHBox/ParametersPanel/ParametersScroll/VBox"]
+custom_minimum_size = Vector2(440, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+
+[node name="StatePanel" type="Panel" parent="MainScroll/MainHBox"]
+custom_minimum_size = Vector2(464, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8vvfi")
+
+[node name="StateScroll" type="ScrollContainer" parent="MainScroll/MainHBox/StatePanel"]
+custom_minimum_size = Vector2(368, 0)
+layout_mode = 2
+offset_left = 40.0
+offset_top = 32.0
+offset_right = 408.0
+offset_bottom = 32.0
+horizontal_scroll_mode = 0
+
+[node name="VBox" type="VBoxContainer" parent="MainScroll/MainHBox/StatePanel/StateScroll"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="FieldLabel" type="Label" parent="MainScroll/MainHBox/StatePanel/StateScroll/VBox"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_srrly")
+text = "STATES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreateButton" type="Button" parent="MainScroll/MainHBox/StatePanel/StateScroll/VBox"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme = ExtResource("2_7j0b2")
+theme_override_font_sizes/font_size = 24
+text = "Create State"
+
+[node name="ExpandAndCollapse" type="HBoxContainer" parent="MainScroll/MainHBox/StatePanel/StateScroll/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 46
+alignment = 1
+
+[node name="ExpandButton" type="Button" parent="MainScroll/MainHBox/StatePanel/StateScroll/VBox/ExpandAndCollapse"]
+custom_minimum_size = Vector2(128, 32)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_7j0b2")
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "Expand All"
+
+[node name="CollapseButton" type="Button" parent="MainScroll/MainHBox/StatePanel/StateScroll/VBox/ExpandAndCollapse"]
+custom_minimum_size = Vector2(128, 32)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_7j0b2")
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "Collapse All
+"
+
+[node name="StateContainer" type="VBoxContainer" parent="MainScroll/MainHBox/StatePanel/StateScroll/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="PropertiesPanel" type="Panel" parent="MainScroll/MainHBox"]
+custom_minimum_size = Vector2(592, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8vvfi")
+
+[node name="PropertiesScroll" type="ScrollContainer" parent="MainScroll/MainHBox/PropertiesPanel"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 544.0
+offset_bottom = 32.0
+horizontal_scroll_mode = 0
+
+[node name="VBox" type="VBoxContainer" parent="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll"]
+custom_minimum_size = Vector2(504, 0)
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="FieldLabel" type="Label" parent="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_srrly")
+text = "PROPERTIES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PropertiesContainer" type="PanelContainer" parent="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox"]
+custom_minimum_size = Vector2(504, 0)
+layout_mode = 2
+
+[node name="StateProperties" type="VBoxContainer" parent="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer"]
+visible = false
+custom_minimum_size = Vector2(504, 0)
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="StateName" type="HBoxContainer" parent="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer/StateProperties"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="StateNameLabel" type="Label" parent="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer/StateProperties/StateName"]
+custom_minimum_size = Vector2(208, 32)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 24
+text = "State Name"
+vertical_alignment = 1
+
+[node name="StateNameField" type="LineEdit" parent="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer/StateProperties/StateName"]
+custom_minimum_size = Vector2(232, 32)
+layout_mode = 2
+focus_mode = 1
+theme = ExtResource("2_7j0b2")
+text = "empty_state"
+max_length = 24
+
+[node name="StateInput" type="HBoxContainer" parent="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer/StateProperties"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="StateInputLabel" type="Label" parent="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer/StateProperties/StateInput"]
+custom_minimum_size = Vector2(208, 32)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 24
+text = "Input"
+vertical_alignment = 1
+
+[node name="StateInputField" type="LineEdit" parent="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer/StateProperties/StateInput"]
+custom_minimum_size = Vector2(232, 32)
+layout_mode = 2
+focus_mode = 1
+theme = ExtResource("2_7j0b2")
+text = "null"
+max_length = 24
+
+[node name="StateConnectionCount" type="HBoxContainer" parent="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer/StateProperties"]
+layout_mode = 2
+
+[node name="ConnectionCountLabel" type="Label" parent="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer/StateProperties/StateConnectionCount"]
+custom_minimum_size = Vector2(200, 32)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_colors/font_outline_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 24
+text = "Connections: 0"
+vertical_alignment = 1
+
+[node name="ConnectionProperties" type="VBoxContainer" parent="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer"]
+custom_minimum_size = Vector2(504, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ConnectionLabel" type="HBoxContainer" parent="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer/ConnectionProperties"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="ConnectionFrom" type="Label" parent="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer/ConnectionProperties/ConnectionLabel"]
+custom_minimum_size = Vector2(224, 38)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_colors/font_outline_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 24
+text = "empty_state"
+horizontal_alignment = 2
+vertical_alignment = 1
+clip_text = true
+
+[node name="Arrow" type="TextureRect" parent="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer/ConnectionProperties/ConnectionLabel"]
+modulate = Color(0.266667, 0.411765, 0.541176, 1)
+custom_minimum_size = Vector2(38, 38)
+layout_mode = 2
+texture = ExtResource("4_h70oq")
+expand_mode = 1
+
+[node name="ConnectionTo" type="Label" parent="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer/ConnectionProperties/ConnectionLabel"]
+custom_minimum_size = Vector2(224, 38)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_colors/font_outline_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 24
+text = "attack_state"
+vertical_alignment = 1
+
+[node name="Spacing" type="Control" parent="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer/ConnectionProperties"]
+layout_mode = 2
+
+[node name="ParameterDropdown" type="Button" parent="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer/ConnectionProperties"]
+custom_minimum_size = Vector2(320, 38)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_g51j8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vlkja")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_34fgl")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_g51j8")
+text = "  Parameters"
+alignment = 0
+
+[node name="ParameterCount" type="Label" parent="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer/ConnectionProperties/ParameterDropdown"]
+custom_minimum_size = Vector2(32, 38)
+layout_mode = 0
+offset_left = 249.0
+offset_right = 281.0
+offset_bottom = 38.0
+pivot_offset = Vector2(16, 19)
+theme_override_colors/font_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Arrow" type="Label" parent="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer/ConnectionProperties/ParameterDropdown"]
+custom_minimum_size = Vector2(32, 38)
+layout_mode = 0
+offset_left = 283.0
+offset_right = 315.0
+offset_bottom = 38.0
+pivot_offset = Vector2(16, 19)
+theme_override_colors/font_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_font_sizes/font_size = 16
+text = "v"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Plus" type="MenuButton" parent="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer/ConnectionProperties/ParameterDropdown"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_left = 329.0
+offset_top = 3.0
+offset_right = 361.0
+offset_bottom = 35.0
+theme = ExtResource("2_7j0b2")
+theme_override_font_sizes/font_size = 20
+text = "+"
+flat = false
+
+[node name="ParameterContainer" type="VBoxContainer" parent="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer/ConnectionProperties"]
+custom_minimum_size = Vector2(440, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+
+[node name="SavePanel" type="Panel" parent="MainScroll/MainHBox"]
+custom_minimum_size = Vector2(464, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8vvfi")
+
+[node name="SaveScroll" type="ScrollContainer" parent="MainScroll/MainHBox/SavePanel"]
+custom_minimum_size = Vector2(384, 0)
+layout_mode = 2
+offset_left = 40.0
+offset_top = 32.0
+offset_right = 424.0
+offset_bottom = 32.0
+horizontal_scroll_mode = 0
+
+[node name="VBox" type="VBoxContainer" parent="MainScroll/MainHBox/SavePanel/SaveScroll"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="FieldLabel" type="Label" parent="MainScroll/MainHBox/SavePanel/SaveScroll/VBox"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_srrly")
+text = "SAVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FileNameLabel" type="Label" parent="MainScroll/MainHBox/SavePanel/SaveScroll/VBox"]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_font_sizes/font_size = 24
+text = "File Name:"
+
+[node name="FileName" type="LineEdit" parent="MainScroll/MainHBox/SavePanel/SaveScroll/VBox/FileNameLabel"]
+custom_minimum_size = Vector2(216, 38)
+layout_mode = 2
+offset_left = 144.0
+offset_right = 360.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 16
+max_length = 24
+
+[node name="FilePathLabel" type="Label" parent="MainScroll/MainHBox/SavePanel/SaveScroll/VBox"]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_font_sizes/font_size = 24
+text = "File Path:"
+
+[node name="FilePath" type="LineEdit" parent="MainScroll/MainHBox/SavePanel/SaveScroll/VBox/FilePathLabel"]
+custom_minimum_size = Vector2(233, 38)
+layout_mode = 2
+offset_left = 127.0
+offset_right = 360.0
+offset_bottom = 38.0
+theme_override_font_sizes/font_size = 16
+
+[node name="LoadLabel" type="Label" parent="MainScroll/MainHBox/SavePanel/SaveScroll/VBox"]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_font_sizes/font_size = 24
+text = "Load:"
+
+[node name="ObjectFieldContainer" type="PanelContainer" parent="MainScroll/MainHBox/SavePanel/SaveScroll/VBox/LoadLabel"]
+custom_minimum_size = Vector2(278, 38)
+layout_mode = 0
+offset_left = 82.0
+offset_top = -16.0
+offset_right = 360.0
+offset_bottom = 22.0
+
+[node name="LoadPanel" type="Panel" parent="MainScroll/MainHBox/SavePanel/SaveScroll/VBox/LoadLabel"]
+visible = false
+custom_minimum_size = Vector2(278, 38)
+layout_mode = 0
+offset_left = 82.0
+offset_top = 4.0
+offset_right = 360.0
+offset_bottom = 42.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kdnxg")
+
+[node name="FilepathLabel" type="Label" parent="MainScroll/MainHBox/SavePanel/SaveScroll/VBox/LoadLabel/LoadPanel"]
+custom_minimum_size = Vector2(262, 38)
+layout_mode = 0
+offset_left = 8.0
+offset_right = 270.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_font_sizes/font_size = 16
+text = "[null]"
+vertical_alignment = 1
+
+[node name="CreateButton" type="Button" parent="MainScroll/MainHBox/SavePanel/SaveScroll/VBox"]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_7j0b2")
+theme_override_font_sizes/font_size = 24
+text = "Create Object"
+
+[node name="PrepareDelete" type="MenuButton" parent="."]
+visible = false
+custom_minimum_size = Vector2(128, 32)
+layout_mode = 2
+offset_left = 496.0
+offset_top = 165.0
+offset_right = 624.0
+offset_bottom = 197.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_uuf6f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uuf6f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uuf6f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_uuf6f")
+text = "Are you sure?"
+flat = false
+item_count = 2
+popup/item_0/text = "YES"
+popup/item_0/id = 0
+popup/item_1/text = "NO"
+popup/item_1/id = 1
+
+[connection signal="pressed" from="MainScroll/MainHBox/ParametersPanel/ParametersScroll/VBox/CreateButton" to="." method="create_parameter"]
+[connection signal="pressed" from="MainScroll/MainHBox/StatePanel/StateScroll/VBox/CreateButton" to="." method="create_state"]
+[connection signal="pressed" from="MainScroll/MainHBox/StatePanel/StateScroll/VBox/ExpandAndCollapse/ExpandButton" to="." method="_expand_pressed"]
+[connection signal="pressed" from="MainScroll/MainHBox/StatePanel/StateScroll/VBox/ExpandAndCollapse/CollapseButton" to="." method="_collapse_pressed"]
+[connection signal="focus_entered" from="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer/StateProperties/StateName/StateNameField" to="." method="_state_name_focus"]
+[connection signal="text_submitted" from="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer/StateProperties/StateName/StateNameField" to="." method="_state_name_changed"]
+[connection signal="focus_entered" from="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer/StateProperties/StateInput/StateInputField" to="." method="_state_input_focus"]
+[connection signal="text_submitted" from="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer/StateProperties/StateInput/StateInputField" to="." method="_state_input_changed"]
+[connection signal="pressed" from="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer/ConnectionProperties/ParameterDropdown" to="." method="_parameter_pressed"]
+[connection signal="about_to_popup" from="MainScroll/MainHBox/PropertiesPanel/PropertiesScroll/VBox/PropertiesContainer/ConnectionProperties/ParameterDropdown/Plus" to="." method="_parameter_connection_plus"]
+[connection signal="focus_entered" from="MainScroll/MainHBox/SavePanel/SaveScroll/VBox/FileNameLabel/FileName" to="." method="_file_name_focus"]
+[connection signal="focus_entered" from="MainScroll/MainHBox/SavePanel/SaveScroll/VBox/FilePathLabel/FilePath" to="." method="_file_path_focus"]
+[connection signal="text_submitted" from="MainScroll/MainHBox/SavePanel/SaveScroll/VBox/FilePathLabel/FilePath" to="." method="_file_path_changed"]
+[connection signal="pressed" from="MainScroll/MainHBox/SavePanel/SaveScroll/VBox/CreateButton" to="." method="create_button_pressed"]
